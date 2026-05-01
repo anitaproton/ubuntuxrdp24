@@ -53,18 +53,7 @@ RUN apt-get update && \
 }\n\
 }" > /etc/vulkan/icd.d/nvidia_icd.json
 
-## Add Docker APT repository
-RUN install -m 0755 -d /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
-    chmod a+r /etc/apt/keyrings/docker.asc && \
-    echo "Types: deb\n\
-Architectures: $(dpkg --print-architecture)\n\
-Signed-By: /etc/apt/keyrings/docker.asc\n\
-URIs: https://download.docker.com/linux/ubuntu\n\
-Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")\n\
-Components: stable" > /etc/apt/sources.list.d/docker.sources
-
-## Install some common tools
+## Install some common tools 
 RUN bash /docker_config/pre_install.sh &&\
     rm -rf /var/lib/apt/lists/* 
 
