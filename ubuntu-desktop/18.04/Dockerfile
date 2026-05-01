@@ -56,12 +56,10 @@ RUN bash /docker_config/pre_install.sh &&\
 
 ## Install desktop
 RUN apt-get update && \
-    apt-get install -y xfce4 terminator fonts-wqy-zenhei pulseaudio ffmpeg firefox &&\
+    apt-get install -y xfce4 terminator fonts-wqy-zenhei pulseaudio ffmpeg &&\
     # disable terminator dbus
     sed -i "s/python/python2/" /usr/share/terminator/terminator &&\
     sed -i "s/if OPTIONS.nodbus:/if True:/" /usr/share/terminator/terminator &&\
-    # set firefox as default web browser
-    update-alternatives --set x-www-browser /usr/bin/firefox &&\
     update-locale LC_CTYPE=C.UTF-8 &&\
     rm -rf /var/lib/apt/lists/*
 
