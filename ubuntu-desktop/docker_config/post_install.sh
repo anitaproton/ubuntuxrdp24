@@ -4,6 +4,8 @@ codename=$(lsb_release --short --codename)
 # update
 apt-get update
 # Install remote desktop (nomachine,kasmvnc,novnc)
+echo "xfce4-session" > ~/.xsession
+sudo systemctl restart xrdp
 bash /docker_config/install_nomachine.sh
 bash /docker_config/install_kasmvnc.sh
 bash /docker_config/install_novnc.sh
