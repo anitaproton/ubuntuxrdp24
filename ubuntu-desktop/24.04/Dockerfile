@@ -59,7 +59,7 @@ RUN bash /docker_config/pre_install.sh &&\
 
 ## Install desktop
 RUN apt-get update && \
-    apt-get install -y xfce4 terminator fonts-wqy-zenhei pulseaudio ffmpeg dbus-x11 &&\
+    apt-get install -y xfce4 terminator xfce4-goodies xrdp fonts-wqy-zenhei pulseaudio ffmpeg dbus-x11 &&\
     # remove and disable screensaver
     apt-get remove -y xfce4-screensaver --purge &&\
     rm -rf /var/lib/apt/lists/*
