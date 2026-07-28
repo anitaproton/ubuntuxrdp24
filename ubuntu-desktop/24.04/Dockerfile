@@ -73,6 +73,6 @@ RUN mkdir -p /var/run/sshd && \
 RUN bash /docker_config/post_install.sh &&\
     rm -rf /var/lib/apt/lists/*
 
-EXPOSE 22 4000
+EXPOSE 22 80 443 3389 4000 11434 20128 20129 20132 8080
 
 ENTRYPOINT ["/docker_config/entrypoint.sh"]
